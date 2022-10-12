@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Форма</title>
+    <meta charset="UTF-8">
+    <meta lang="uk">
+</head>
+<body>
+    <header>
+        <h1>Викладач.юа</h1>
+        <p>Знайди нового друга!</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="form.html">Створити анкету</a></li>
+            <li><a href="statistics.html">Статистика</a></li>
+            <li><a href="shortCard.html">Анкети користувачів</a></li>
+        </ul>
+    </nav>
+        <hr>
+    <h3>Створіть вашу анкету!</h3>
+    <form>
+        <fieldset>
+            <legend>Форма викладача</legend>
+            <label for="name">Повне ім'я</label>
+            <input  type="text" id="name">
+            <br>
+            <br>
+            <label>Чоловік <input  type = "radio" name = "sex"value =  "male" checked></label><br>
+            <label>Жінка <input  type = "radio" name = "sex"value =  "female" ></label><br>
+            <label>Не бажаю відповідати <input  type = "radio" name = "sex" value = "neutral" ></label><br><br>
+            <label for="birthday">Дата народження</label>
+            <input  type="date" id="birthday" value="2003-12-21"><br><br>
+            <label for="mail">E-Mail</label>
+            <input  type="email" id="mail" required placeholder="email1@gmail.com"><br><br>
+            <label >Бажаний колір фону<input type="color"></label><br><br>
+            <label for="country">Країна</label>
+            <select name="country"  id="country">
+                <option value="UA" label="Україна" selected></option>
+                <option value="US" label="Америка" ></option>
+            </select>
+            <br><br>
+            <label for="city">Місто</label>
+            <select name="city"  id="city">
+                <option value="ZT" label="Житомир" selected></option>
+                <option value="KYIV" label="Київ" ></option>
+                <option value="OD" label="Одеса" ></option>
+                <option value="KH" label="Харків" ></option>
+                <option value="RIV" label="Рівне" ></option>
+                <option value="СHUD" label="Чуднів" ></option>
+                <option value="LC" label="Луцьк" ></option>
+            </select>
+            <br><br>
+            <label for="comment">Коментар</label>
+            <br>
+            <textarea id="comment" cols="40" rows="5"></textarea>
+            <br>
+        </fieldset>
+        <input type="submit" value="Підтвердити">
+    </form>
+    <hr>
+    <footer>
+        <p>Всі права захищені,2022</p>
+        <a href="https://www.president.gov.ua/">Наші спонсори</a>
+    </footer>
+    
+</body>
+</html>
