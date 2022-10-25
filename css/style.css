@@ -1,0 +1,109 @@
+
+*{
+    margin:0 0 0 0 ;
+    padding: 0 0 0 0;
+    box-sizing: border-box;
+} 
+
+body{
+    background-color: #fcfcfc;
+    font-family: 'Roboto Flex', sans-serif;
+
+}
+.wrapper{
+    background-color:#ffffff ;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 0;
+    margin-bottom: 0;
+    min-height: 100vh;
+    box-shadow: 0 14px 3px rgba(0,0,0,0.2), 0 10px 3px rgba(0,0,0,0.2);
+}
+.container{
+    max-width: 80%;
+    margin: 0 auto;
+}
+.logo h1{
+    transition:1s;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;   
+  color:#fafafa;
+  text-shadow: -1.4px -1.2px 0px #f75c49,1.3px 1px 0px #000000;
+  
+}
+.logo h1:hover{
+    text-shadow: -1.5px -1.5px 0px #f75c49,2px 1px 0px #000000;
+    color:#eeeeee;
+
+}
+.header_upper{
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav_link{
+    text-decoration: none;
+    color:#f75c49;
+    margin-right: 30px;
+    font-size: 16px;
+}
+.search #field{
+    width: 160px;
+    height: 32px;
+    margin-right: 20px;
+    font-size: 11px;
+    text-align: center;
+    transition:  1s;
+}
+.search #field:hover{
+    width: 250px;
+}
+.search #button{
+    transition:  0.5s;
+    width: 70px;
+    height: 32px;
+    background-color: white;
+    border: 1px solid #f75c49;
+    color:#f75c49;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size:11px ;
+}
+.search #button:hover{
+    background-color:#f75c49 ;
+    color:white;
+    
+}
+.header_lower{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+.button input{
+    transition:  0.5s;
+    width: 120px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #f75c49;
+    color:#f75c49;
+    font-family: 'Roboto Flex', sans-serif;
+    font-size: 16px;
+    
+}
+.button input:hover{
+    background-color:#f75c49 ;
+    color:white;
+    
+    
+}
+hr{
+    max-width: 400px;
+    margin:0 auto;
+    border: none; 
+  margin-top:30px;
+  margin-bottom: 30px;
+  background-color: black; 
+  height: 0.5px;
+}
