@@ -1,4 +1,16 @@
+@media (max-width: 768px)  {
+    .wrapper{
+        margin-left: 0%;
+        margin-right: 0%;
+    } 
+    .footer_text{
+        font-size: 10px;
+    }
+    .arrow{
+        visibility: hidden;
+    }
 
+}
 *{
     margin:0 0 0 0 ;
     padding: 0 0 0 0;
@@ -8,25 +20,27 @@
 body{
     background-color: #fcfcfc;
     font-family: 'Roboto Flex', sans-serif;
-
+    font-weight: 600;
+position: relative;
 }
 .wrapper{
     background-color:#ffffff ;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 13%;
+    margin-right: 13%;
     margin-top: 0;
     margin-bottom: 0;
     min-height: 100vh;
     box-shadow: 0 14px 3px rgba(0,0,0,0.2), 0 10px 3px rgba(0,0,0,0.2);
+    
 }
 .container{
-    max-width: 80%;
+    max-width: 85%;
     margin: 0 auto;
 }
 .logo h1{
     transition:1s;
-  font-size: 40px;
-  font-weight: bold;
+  font-size: 45px;
+  font-weight: 700;
   font-family: "Times New Roman", Times, serif;   
   color:#fafafa;
   text-shadow: -1.4px -1.2px 0px #f75c49,1.3px 1px 0px #000000;
@@ -44,10 +58,14 @@ body{
     align-items: center;
 }
 .nav_link{
+    transition:  0.5s;
     text-decoration: none;
     color:#f75c49;
-    margin-right: 30px;
-    font-size: 16px;
+    margin-right: 35px;
+    font-size: 17px;
+}
+.nav_link:hover{
+    color:#c24938;
 }
 .search #field{
     width: 160px;
@@ -69,6 +87,7 @@ body{
     color:#f75c49;
     font-family: 'Roboto Flex', sans-serif;
     font-size:11px ;
+    font-weight: 600;
 }
 .search #button:hover{
     background-color:#f75c49 ;
@@ -81,22 +100,22 @@ body{
     align-items: center;
     margin-top: 40px;
 }
+/**/
 .button input{
     transition:  0.5s;
-    width: 120px;
+    width: 130px;
     height: 40px;
     background-color: white;
     border: 1px solid #f75c49;
     color:#f75c49;
     font-family: 'Roboto Flex', sans-serif;
     font-size: 16px;
+    font-weight: 600;
     
 }
 .button input:hover{
     background-color:#f75c49 ;
     color:white;
-    
-    
 }
 hr{
     max-width: 400px;
@@ -106,4 +125,429 @@ hr{
   margin-bottom: 30px;
   background-color: black; 
   height: 0.5px;
+}
+h2{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+}
+.teachers_info{
+    margin-top: 30px;
+}
+.filters{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.filters .text{
+    font-size: 12px;
+    font-weight: 300;
+    color:gray;
+    padding-left: 14px;
+    padding-right: 14px;
+    
+}
+.filters #left{
+    padding-left: 0px;
+}
+.filter_border {
+    height: 28px;
+    border-right: 2px dotted #989898;
+    padding-right:14px ;
+}
+
+.filter_border:last-child{
+    border:none;
+}
+.filter_border select{
+    height: 28px;
+    width: 70px;
+    font-size: 11px;
+    font-weight: 300;
+    color:black;
+}
+ #checkbox{
+    display: flex;
+  align-items: center;
+    font-size: 12px;
+    font-weight: 300;
+    color:gray;
+    margin-left:14px;
+}
+#checkbox label{
+    padding-left: 5px;
+}
+.teachers{
+    margin-top: 40px;
+    display:grid;
+    grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+   grid-gap: 20px;
+   
+}
+.person{
+    width: 132px;
+margin-left: 2.5%;
+margin-bottom:30px ;
+
+}
+.photo {
+    transition: 1s;
+    margin: 0 auto;
+    width: 132px;
+    height: 132px;
+    overflow: hidden;
+    border-radius: 50%;
+    border:4px solid #f99589;
+  }
+  .photo:hover{
+    border:4px solid #ca4033;
+    color:#ca4033;
+  }
+  .photo:hover >  img{
+    transform: scale(1.2);
+  }.letters{
+transition: 1s;
+
+  }
+  .photo:hover >  .letters{
+    color:#ca4033;
+    font-size: 28px;
+  }
+  
+  .photo img {
+    width: auto;
+    height: 100%;
+    text-align: center;
+    transition: 1s;
+  }
+  .name,.major,.country{
+    text-align: center;
+
+  }
+  .name{
+    margin-top: 13%;
+    margin-bottom: 9%;
+
+    font-size: 18px;
+  }
+  .major{
+    font-size: 12px;
+    font-weight: 300;
+    color:gray;
+  }
+ 
+  .country{
+    margin-top: 7%;
+    font-size: 10px;
+    font-weight: 300;
+    color:black;
+  }
+  #abb{
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 25px;
+    font-weight: 600;
+    color:#f75c49;
+  }
+  #stared{
+    position: relative;
+  }
+  .star{
+    position:absolute;
+    overflow: visible;
+    top:5px;
+    right:0px;
+    z-index: 1000;
+  }
+  .star img{
+   
+    height: 30px;
+    width: 30px;
+    z-index: 1000;
+    object-fit: cover;
+  }
+  table{
+    margin-top: 30px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom:20px ;
+    
+  }
+  td{
+    font-weight: 300;
+    font-size: 12px;
+    text-align: center;
+  }
+  th{
+    font-weight: 300;
+    font-size: 15px;
+  }
+  #left{
+    text-align: left;
+    padding-left:15px ;
+  }
+  
+  tr:nth-child(odd){
+background-color: #f9f5f9;
+  }
+
+ #head {
+    border-bottom: 0.8px solid black ;
+    background-color:white;
+    height: 30px;
+  }
+  tr{
+    height: 28px;
+  }
+  #age_head{
+    width: 120px;
+  }
+  th:hover{
+    background-color: #fafafa;
+    border-bottom: 3px solid black;
+  }
+  th:hover:after{
+    content:" ↓";
+    color:rgb(85, 213, 255);
+  }
+  th span{
+    color:#dff3e8;
+    visibility: hidden;
+  }
+  .pages a{
+    text-decoration:none;
+    font-weight: 300;
+    font-size: 12px;
+    margin-right:7px ;
+    margin-left:7px ;
+  }
+  .pages{
+    margin-left:15px;
+  }
+  .favorites{
+    position: relative;
+  }
+  .arrow {
+    height:60px;
+    width: 25px;
+  }
+  .arrow img{
+    height: 60px;
+    width: 25px;
+    object-fit: cover;
+  }
+  #leftAr{
+    position: absolute;
+    top:40%;
+    left: 3%;
+
+  }
+  #rightAr{
+    position: absolute;
+    right:3%;
+    top:40%;
+
+  }
+.favorites{
+    margin-top: 25px;
+}
+  .teachers_favorites{
+    display:grid;
+    grid-template-columns: repeat( auto-fit, minmax(150px, 1fr) );
+   grid-gap: 20px;
+    
+    
+  }
+  .teachers_favorites .person{
+margin: 0 0 0 0;
+  }
+  .footer_text{
+    font-size: 13px;
+    font-weight: 300;
+    margin-bottom: 15px;
+  }
+  #footer_link{
+    padding-bottom: 15px;
+    margin-top: 30px;
+  }
+  #footer_link nav a{
+    font-weight: 500 ;
+  }
+  /* teacher popup here*/
+  #form_popup{
+    visibility: hidden;
+  }
+  .add_teacher{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top:0%;
+    left: 0%;
+    background: rgba(0,0,0,.5);
+    backdrop-filter: blur(3px);
+     z-index: 1000;
+  }
+  .teacher_form{
+    position: absolute;
+    top: 5%;
+    right: 35%;
+    background-color: white;
+    box-shadow: 2px 2px 4px rgb(76, 76, 76),-2px -2px 4px rgb(76, 76, 76);
+    height:   650px;
+    width:450px;
+    border-radius: 1%;
+    overflow: hidden;
+    
+  }
+  .form_header{
+    width: 100%;
+    height: 9%;
+    background-color: #464648;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+  }
+  .form_header p{
+    font-weight: 400;
+    font-size: 25px;
+    color: white;
+    margin-left: 20px;
+  }
+.form_field{
+    margin-bottom: 15px;
+}
+  
+  .cross{
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+  }
+  .form_content{
+    width: 90%;
+    height: 85%;
+    margin: 0 auto;
+    margin-top: 4%;
+  }
+  .parametr{
+    font-size: 13px;
+    font-weight: 300;
+    color:gray;
+    padding-bottom: 5px;
+  }
+  .form_field >input,.form_field> select{
+    width: 100%;
+    height:30px;
+    text-align: left;
+    font-size: 13px;
+  }
+  #two_fields{
+    display: flex;
+    justify-content: space-between;
+
+  }
+  .element>select,.element>input{
+    width: 190px;
+    height:30px;
+    text-align: left;
+    font-size: 13px;
+  }
+  #sex_form{
+    display: flex;
+
+  }
+.radio{
+    margin-left: 25px ;
+    font-size: 13px;
+    font-weight: 300;
+    color:black;
+}
+.color{
+    width: 45px;
+    height: 20px;
+    margin-left:15px ;
+}
+textarea{
+    width: 100%;
+    height: 70px;
+    resize: none;
+}
+.form_button{
+    transition: 1s;
+    width: 100%;
+    height:50px;
+    font-size: 25px;
+    font-weight: 600;
+    background-color: white;
+    border: 1px solid #f75c49;
+    color:#f75c49;
+}
+.form_button:hover{
+    background-color:#f75c49 ;
+    color:white;
+    
+}
+#person_popup{
+    height: 450px;
+    width: 650px;
+    top:10%;
+    left:50%;
+transform:translate(-50%, -10%);
+}
+.block{
+    width: 95%;
+    height: 80%;
+    margin: auto;
+    margin-top: 20px;
+}
+.teacher_picture{
+    float: left;
+}
+.teacher_picture img{
+    width: 250px;
+    height: 250px;
+}
+.top_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#popup_star{
+    position:static;
+}
+#name_popup{
+    font-size: 25px;
+    font-weight: 400;
+}
+.information{
+    margin-left: 15px;
+}
+.details{
+    font-size: 13px;
+    font-weight: 300;
+    color:black;
+}
+.side_info>p,.side_info>a{
+    margin-top:15px ;
+    margin-bottom: 15px;
+}
+.side_info a{
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 300;
+    color:#7ccee4;
+}
+#personal_info{
+    margin-top: 80px;
+}
+.map{
+    text-decoration: none;
+    border-bottom:1px dashed;
+    font-size: 13px;
+    font-weight: 300;
+}
+/*teacher popup */
+#teacher_popup{
+    visibility: hidden;
 }
