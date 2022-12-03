@@ -17,7 +17,7 @@
     <div class="logo"><h1 id="#teach">Teachinder</h1></div>
     <div class="search">
         <input id="field" type="text" placeholder="Name,note or age to search">  
-        <input id="button" type="button" value="Search">
+        <input class="searchButton" id="button" type="button" value="Search">
         
     </div>
 </div>
@@ -29,7 +29,7 @@
         <a class="nav_link" href="#footer">About</a>
     </nav>
     <div class="button" >
-        <input type="button" value="Add teacher">
+        <input class="addTeacherButton" type="button" value="Add teacher">
     </div>
 </div>
     </div>
@@ -39,25 +39,33 @@
     <h2>Top Teachers</h2>
     <div class="teachers_info" >
     <div class="filters">
-        <div class="filter_border">
+        <div class="filter_border" >
         <label id="left" for="age" class="text">Age</label>
             <select  name="age"  id="age">
-                <option value="18-31" label="18-31" selected></option>
+                <option value="Default" label="Default" selected></option>
+                <option value="18-31" label="18-31" ></option>
                 <option value="32-59" label="32-59" ></option>
-                <option value="60+" label="60+" ></option>
+                <option value="60-120" label="60-120" ></option>
             </select></div>
             <div class="filter_border">
             <label class="text" for="region">Region</label>
             <select  name="region"  id="region">
-                <option value="Europe" label="Europe" selected></option>
-                <option value="Africa" label="Africa" ></option>
-                <option value="South America" label="South America" ></option>
+                <option value="Default" label="Default" selected></option>
+                <option value="Denmark" label="Denmark" ></option>
+                <option value="Germany" label="Germany" ></option>
+                <option value="United States" label="United States" ></option>
+                <option value="Finland" label="Finland" ></option>
+                <option value="Turkey" label="Turkey" ></option>
+                <option value="New Zealand" label="New Zealand" ></option>
+                <option value="Iran" label="Iran" ></option>
+
             </select></div>
             <div class="filter_border">
             <label class="text" for="sex">Sex</label>
             <select  name="sex"  id="sex">
-                <option value="Male" label="Male" selected></option>
-                <option value="Female" label="Female" ></option>
+                <option value="Default" label="Default" selected></option>
+                <option value="male" label="male" ></option>
+                <option value="female" label="female" ></option>
             </select></div>
             <div class="filter_border" id="checkbox">
             <input label   type="checkbox" name="only_photo"  id="only_photo">
@@ -65,123 +73,12 @@
             <div class="filter_border" id="checkbox">
             <input type="checkbox" name="only_favorites" id="only_favorites">
             <label for="only_favorites">Only favorites</label></div>
+            <div class="button" >
+                <input type="button" id="filter_button" value="Filter">
+            </div>
     </div>
     <div class="teachers">
-        <div class="person">
-            <div class="photo"><img src="../images/1.jpg" alt="JL"></div>
-            <div class="description">
-                <p class="name">
-                    Jennifer<br> Lawrence
-                </p>
-                <p class="major">
-                   Acting
-                </p>
-                <p class="country">
-                    the U.S.
-                 </p>
-            </div>
-        </div>
-        <div class="person">
-            <div class="photo"><img src="../images/2.jpg" alt="M.C."></div>
-            <div class="description">
-                <p class="name">
-                    Mark<br> Zukerberg
-                </p>
-                <p class="major">
-                   Programming
-                </p>
-                <p class="country">
-                    the U.S.
-                 </p>
-            </div>
-        </div>
-        <div  class="person" id="stared">
-            <div class="star"><img  src="../images/star.png" alt="P.D."></div>
-            <div class="photo" ><img src="../images/3.jpg" alt="P.D."></div>
-            <div class="description">
-                <p class="name">
-                    Pavel<br>Durov
-                </p>
-                <p class="major">
-                   Business
-                </p>
-                <p class="country">
-                    Unknown state
-                 </p>
-            </div>
-        </div>
-        <div class="person">
-            <div class="photo"><img src="../images/4.jpg" alt="C.R."></div>
-            <div class="description">
-                <p class="name">
-                    Cristiano<br>Ronaldo
-                </p>
-                <p class="major">
-                   Sport
-                </p>
-                <p class="country">
-                    Portugal
-                 </p>
-            </div>
-        </div>
-        <div  id="stared" class="person">
-            <div class="star"><img  src="../images/star.png" alt="Star"></div>
-            <div class="photo" ><img src="../images/5.jpg" alt="T.S."></div>
-            <div class="description">
-                <p class="name">
-                    Travis<br>Scott
-                </p>
-                <p class="major">
-                   Music
-                </p>
-                <p class="country">
-                    the U.S.
-                 </p>
-            </div>
-            
-        </div>
-        <div class="person">
-            <div class="photo"><img src="../images/6.jpg" alt="S.K."></div>
-            <div class="description">
-                <p class="name">
-                    Stephen<br>King
-                </p>
-                <p class="major">
-                   Literature
-                </p>
-                <p class="country">
-                    the U.S.
-                 </p>
-            </div>
-        </div>
-        <div class="person">
-            <div class="photo" id="abb"><span class="letters">A.B.</span></div>
-            <div class="description">
-                <p class="name">
-                    Ann<br>Jonhson
-                </p>
-                <p class="major">
-                   Math
-                </p>
-                <p class="country">
-                    the U.K.
-                 </p>
-            </div>
-        </div>
-        <div class="person">
-            <div class="photo" id="abb"><span class="letters">T.J</span></div>
-            <div class="description">
-                <p class="name">
-                    Tom<br>Jasper
-                </p>
-                <p class="major">
-                   Chemistry
-                </p>
-                <p class="country">
-                    Netherlands
-                 </p>
-            </div>
-        </div>
+       
     </div>
     
   </div>
@@ -191,156 +88,78 @@
     <h2>Statistics</h2>
     <table>
         <tr id="head">
-            <th id="left" >Name</th>
-            <th>Specialty </th>
-            <th id="age_head">Age</th>
-            <th>Gender </th>
-            <th>Nationality </th>
+            <th id="left" class="tableName">Name</th>
+            <th class="tableSpecialty">Specialty </th>
+            <th class="tableAge" id="age_head">Age</th>
+            <th class="tableGender">Gender </th>
+            <th class="tableNationality">Nationality </th>
         </tr></div>
-        <tr >
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
-        <tr>
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
-        <tr>
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
-        <tr>
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
-        <tr>
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
-        <tr>
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
-        <tr>
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
-        <tr>
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
-        <tr>
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
-        <tr>
-            <td id="left">Daisy Alexander</td>
-            <td>Chemistry</td>
-            <td>28</td>
-            <td>Female</td>
-            <td>Vietnam</td>
-        </tr>
+        
+       
+    
     </table>
     <nav class="pages">
-        <a href="">1</a>
-        <a href="">2</a>
-        <a href="">3</a> 
-        <a href="">...</a> 
-        <a href="">Last</a> 
+        <a href="#statistics">1</a>
+        <a href="#statistics">2</a>
+        <a href="#statistics">3</a> 
+        <a href="#statistics">4</a>
+        <a href="#statistics">5</a>  
     </nav>
 </div>
 
 <hr>
 <h2 id="fav_teachers">Favorites</h2>
 <div class="favorites">
-    <div class="arrow" id="leftAr"><img src="../images/left.png" alt="arrow"></div>
     <div class="container">
+        <div class="filters favorite_filters">
+            <div class="filter_border" >
+            <label id="left" for="age" class="text">Age</label>
+                <select  name="age"  id="age">
+                    <option value="Default" label="Default" selected></option>
+                    <option value="18-31" label="18-31" ></option>
+                    <option value="32-59" label="32-59" ></option>
+                    <option value="60-120" label="60-120" ></option>
+                </select></div>
+                <div class="filter_border">
+                <label class="text" for="region">Region</label>
+                <select  name="region"  id="region">
+                    <option value="Default" label="Default" selected></option>
+                    <option value="Denmark" label="Denmark" ></option>
+                    <option value="Germany" label="Germany" ></option>
+                    <option value="United States" label="United States" ></option>
+                    <option value="Finland" label="Finland" ></option>
+                    <option value="Turkey" label="Turkey" ></option>
+                    <option value="New Zealand" label="New Zealand" ></option>
+                    <option value="Iran" label="Iran" ></option>
+    
+                </select></div>
+                <div class="filter_border">
+                <label class="text" for="sex">Sex</label>
+                <select  name="sex"  id="sex">
+                    <option value="Default" label="Default" selected></option>
+                    <option value="male" label="male" ></option>
+                    <option value="female" label="female" ></option>
+                </select></div>
+                <div class="filter_border" id="checkbox">
+                <input label   type="checkbox" name="only_photo"  id="only_photo">
+                <label for="only_photo">Only with photo</label></div>
+                <div class="filter_border" id="checkbox">
+                <input type="checkbox" name="only_favorites" id="only_favorites">
+                <label for="only_favorites">Only favorites</label></div>
+                <div class="button" >
+                    <input type="button" id="filter_button" value="Filter">
+                </div>
+        </div>
         <div class="teachers_favorites">
-        <div class="person">
-            <div class="photo"><img src="../images/1.jpg" alt="JL"></div>
-            <div class="description">
-                <p class="name">
-                    Jennifer<br> Lawrence
-                </p>
-                <p class="country">
-                    the U.S.
-                 </p>
-            </div>
+        
+    
         </div>
-        <div class="person">
-            <div class="photo"><img src="../images/2.jpg" alt="M.C."></div>
-            <div class="description">
-                <p class="name">
-                    Mark<br> Zukerberg
-                </p>
-                <p class="country">
-                    the U.S.
-                 </p>
-            </div>
-        </div>
-        <div  class="person" >
-            <div class="photo" ><img src="../images/3.jpg" alt="P.D."></div>
-            <div class="description">
-                <p class="name">
-                    Pavel<br>Durov
-                </p>
-                <p class="country">
-                    Unknown state
-                 </p>
-            </div>
-        </div>
-        <div class="person">
-            <div class="photo"><img src="../images/4.jpg" alt="C.R."></div>
-            <div class="description">
-                <p class="name">
-                    Cristiano<br>Ronaldo
-                </p>
-                <p class="country">
-                    Portugal
-                 </p>
-            </div>
-        </div>
-        <div   class="person">
-            <div class="photo" ><img src="../images/5.jpg" alt="T.S."></div>
-            <div class="description">
-                <p class="name">
-                    Travis<br>Scott
-                </p>
-                <p class="country">
-                    the U.S.
-                 </p>
-            </div>
-            </div>
+        <div class="teachers_favorites">
+        
+    
         </div>
         
-    </div><div class="arrow" id="rightAr"><img src="../images/right.png" alt="arrow"></div>
+    </div>
 </div>
 <hr>
 <div class="container">
@@ -361,104 +180,17 @@
         <a class="nav_link" href="">About</a>
     </nav>
     <div class="button" >
-        <input type="button" value="Add teacher">
+        <input class="addTeacherButton" type="button" value="Add teacher">
     </div>
 </div>
 </div>
 </div>
-<div class="add_teacher" id="form_popup">
-<div class="teacher_form">
-    <div class="form_header"><p >Add Teacher</p> 
-    <img class="cross" src="../images/cross.png" alt="cross"></div>
-    <div class="form_content">
-        <div class="form_field">
-        <div class="parametr">Name</div>
-            <input type="text" placeholder="Enter name">
-    </div>
-        <div class="form_field">
-        <div class="parametr">Specialty</div>
-            <select name="specialty" id="Specialty">
-            <option value="Math" selected label="Mathematics"></option>
-            <option value="Chemistry" label="Chemistry" ></option>
-            <option value="Biology" label="Biology" ></option></select>
-    </div>
-    <div class="form_field" id="two_fields">
-        <div class="element">
-            <div class="parametr">Country</div>
-            <select name="country" id="state">
-                <option value="us" selected label="the U.S."></option>
-                <option value="Ukraine" label="Ukraine" ></option>
-                <option value="Brazil" label="Brazil" ></option></select>
-        </div>
-        <div class="element">
-            <div class="parametr">City</div>
-            <input type="text">
-        </div>
-    </div>
-    <div class="form_field" id="two_fields">
-        <div class="element">
-            <div class="parametr">Email</div>
-            <input type="text">
-        </div>
-        <div class="element">
-            <div class="parametr">Phone</div>
-            <input type="text">
-        </div>
-    </div>
-    <div class="form_field" >
-        <div class="element">
-            <div class="parametr">Date of birth</div>
-            <input type="date">
-        </div>
-    </div>
-    <div class="form_field" id="sex_form">
-        <div class="parametr">Sex
-           </div> <div class="radio">
-            <label for="male">Male</label>
-            <input type="radio" value="Male" id="male" name="sex">
-            <label for="female">Female</label>
-            <input type="radio" value="Female" id="female" name="sex">
-        </div>
-    </div>
-<div class="form_field">
-    <div class="parametr">Background color <input class="color" type="color" ></div>
-</div>
-<div class="form_field">
-    <div class="parametr">Notes(optional)</div>
-    <textarea></textarea>
-</div>
-<input type="button"  class="form_button" value="Add">
-</div>
-</div>
-</div>
-<div class="add_teacher" id="teacher_popup">
-<div class="teacher_form" id="person_popup">
-    <div class="form_header" ><p >Teacher Info</p> 
-        <img class="cross" src="../images/cross.png" alt="cross"></div>
-        <div class="block">
-            <div class="teacher_picture">
-                <img src="../images/1.jpg" alt="Teacher">
-            </div>
-        <div class="popup_description">
-            <div class="top_info">
-                <p id="name_popup" class="information">
-                    Jennifer Lawrence
-                </p>
-            <div class="star" id="popup_star"><img  src="../images/star.png" alt="Star"></div></div>
 
-            <div class="side_info">
-            <p class="degree"> Acting</p>
-            <p class="details">New York,the U.S.</p>
-            <p class="details">30,Female</p>
-            <a href="" class="mail">example123@gmail.com</a>
-            <p class="details"> +1232324221</p>
-        </div>
-    </div>
-    <p class="footer_text" id="personal_info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque leo lorem, viverra in cursus eget, rhoncus non lacus. Donec congue, massa ultrices auctor imperdiet, orci massa sollicitudin elit, vel rutrum purus felis sit amet justo. Aliquam porta hendrerit erat eget sagittis. 
-        Sed ullamcorper faucibus risus, sit amet convallis est posuere a. Praesent laoreet erat nec orci dignissim egestas. </p>
-        <a href="" class="map">Toggle map</a>
-        </div>
+<div class="add_teacher" id="teacher_popup" >
+
 </div>
-</div>
+<script type="module" src="../js/script.js"></script>
+<script type="module" src="../js/functions.js"></script>
+<script type="module" src="../js/FE4U-Lab3-mock.js"></script>
     </body>
 </html>
