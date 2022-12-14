@@ -1,0 +1,29 @@
+{
+  "name": "mypackage",
+  "version": "1.0.0",
+  "description": "Lab Project package",
+  "main": "./js/script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel new.html", 
+"build": "parcel build new.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wow11One/frontendlab1.git"
+  },
+  "keywords": [
+    "mypackage"
+  ],
+  "author": "V.Havryliuk",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Wow11One/frontendlab1/issues"
+  },
+  "homepage": "https://github.com/Wow11One/frontendlab1#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "json-server": "^0.17.1"
+  },
+  "type": "commonjs"
+}

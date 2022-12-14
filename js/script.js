@@ -1,16 +1,24 @@
-import {changeObj,filter,ageSort,nameSort,subjectSort,countrySort,findAge,findNote,findName,validation} from './functions.js';
+import {changeObj,filter,ageSort,nameSort,subjectSort,countrySort,findAge,findNote,findName,validation,getRequest,postData} from './functions.js';
 import {randomUserMock} from './FE4U-Lab3-mock.js';
+
 let users=[]
 let favUsers=[]
-
-function correctObject(){
-    for(let temp of randomUserMock){
-        let newUser=changeObj(temp)
+let statsPage=[]
+let data= await getRequest(50)
+let id=0;
+function correctObject(data){
+    let res=[]
+    for(let temp of data){
+        id++;
+        let newUser=changeObj(temp,id)
+        res.push(newUser)
         newUser.isFavorite=false
         users.push(newUser)
     }
+    return res
 }
-correctObject()
+correctObject(data)
+//let lastId=++users[users.length-1].id
 function generatePopUp(user){
     let popupContainer=document.getElementById('teacher_popup')
     popupContainer.insertAdjacentHTML('afterbegin',`<div class="teacher_form" id="person_popup">
@@ -44,7 +52,7 @@ function generatePopUp(user){
 }
 function generateUser(user,teachersPanel){
     teachersPanel.insertAdjacentHTML('beforeend',
-    `<div class="person" data-id="${user.id}">
+    `<div class="person" data-id="${user._id}">
     <div class="photo"><img src="${user.picture_large}" alt="JL" ></div>
     <div class="description">
         <p class="name">
@@ -67,8 +75,8 @@ star.setAttribute('src',user.isFavorite?'../images/star.png':'../images/starcont
 star.addEventListener('click',function (){//додавання в вибрані
     if(user.isFavorite){
     user.isFavorite=false
-    favUsers=favUsers.filter(el=>user.id!=el.id)
-    document.querySelector(`.teachers_favorites .person[data-id="${user.id}"]`).remove()
+    favUsers=favUsers.filter(el=>user._id!=el._id)
+    document.querySelector(`.teachers_favorites .person[data-id="${user._id}"]`).remove()
     star.setAttribute('src','../images/starcontur.png')
     console.log('delete')
     }
@@ -78,7 +86,7 @@ star.addEventListener('click',function (){//додавання в вибрані
         generateUser(user,favoritesBlock)
         star.setAttribute('src','../images/star.png')
         favUsers.push(user)
-        const thisUser=document.querySelector(`.teachers_favorites .person[data-id="${user.id}"]`)
+        const thisUser=document.querySelector(`.teachers_favorites .person[data-id="${user._id}"]`)
 thisUser.addEventListener('click', showPopUp)
     }
     
@@ -97,7 +105,7 @@ function showPopUp(){
     let id=this.getAttribute('data-id')
     let person;
     for(let user of users){
-        if(id==user.id){
+        if(id==user._id){
             person=user
         break
         }    
@@ -123,20 +131,26 @@ function showPopUp(){
 let teachersPanel=document.querySelector('.teachers')
 let favoritesPanel=document.querySelector('.favorites .container')
 
-let lastId=++users[users.length-1].id
-showUsers(users,teachersPanel)
 
-let popupContainer=document.getElementById('teacher_popup')
-    popupContainer.innerHTML=''
-    popupContainer.style.display="none";
-let logo=document.querySelector('.logo')
-logo.addEventListener('click',function(){
+showUsers(users,teachersPanel)
+function logoOnClick(){
     let topTeachers=document.querySelector('#teachers_info h2')
     topTeachers.innerText='Top Teachers'
     teachersPanel.innerHTML=''
     let filtersBlock=document.querySelector('.filters')
     filtersBlock.style.visibility='visible'
+    let getTeachers=document.getElementById('getNewTeachers')
+    getTeachers.style.visibility='visible'
     showUsers(users,teachersPanel)
+    updateTable(users)
+
+}
+let popupContainer=document.getElementById('teacher_popup')
+    popupContainer.innerHTML=''
+    popupContainer.style.display="none";
+let logo=document.querySelector('.logo')
+logo.addEventListener('click',function(){
+    logoOnClick()
 })
 let filter_button=document.querySelector('#filter_button')
 filter_button.addEventListener('click',function(){
@@ -147,6 +161,9 @@ filter_button.addEventListener('click',function(){
 
     let filterResult=filter(users,country.value,age.value,gender.value)
     showUsers(filterResult,teachersPanel)
+    updateTable(filterResult)
+    let getTeachers=document.getElementById('getNewTeachers')
+    getTeachers.style.visibility='hidden'
 
 })
 let flilter_fav=document.querySelector('.favorite_filters')
@@ -183,10 +200,11 @@ for(let user of statsPage){
 }
 table.insertAdjacentHTML('beforeend',tableText)
 }
-function createPage(number,statsPage){
+function createPage(number,statsPage,users){
   let userBorder=number*10
-  statsPage.splice(0,statsPage.length)
-    for(let i=userBorder-10;i<userBorder;i++){
+ statsPage.splice(0,statsPage.length)
+
+    for(let i=userBorder-10;i<Math.min(userBorder,users.length);i++){
         statsPage.push(users[i])
     }
     }
@@ -194,11 +212,13 @@ function createPage(number,statsPage){
         if( document.getElementById('form_popup')!=null)
         document.getElementById('form_popup').remove()
         document.body.insertAdjacentHTML('afterbegin',`
-        <div class="add_teacher" id="form_popup">
+        <div  class="add_teacher" id="form_popup">
 <div class="teacher_form">
     <div class="form_header"><p >Add Teacher</p> 
     <img class="cross formCross" src="../images/cross.png" alt="cross"></div>
     <div class="form_content">
+    <form>
+    
         <div class="form_field">
         <div class="parametr">Name</div>
             <input class="name_field" type="text" placeholder="Enter name" required>
@@ -268,19 +288,22 @@ function createPage(number,statsPage){
     <div class="parametr">Notes(optional)</div>
     <textarea class="noteField"></textarea>
 </div>
-<input type="button"  class="form_button addTeacher" value="Add">
+<input type="submit"  class="form_button addTeacher" value="Add">
 </div>
+</form>
 </div>
 </div>
         `)
         let cross=document.querySelector('.formCross')
         cross.addEventListener('click',function(){
             document.getElementById('form_popup').remove()
+          
         })
         let form=document.querySelector('#form_popup .teacher_form')
         form.scrollIntoView({block:'center',behavior:'smooth'})
-        let addTeacherButton=document.querySelector('.addTeacher')
-        addTeacherButton.addEventListener('click',function(){
+        let teachersForm=document.querySelector('form')
+        teachersForm.addEventListener('submit',async function(event){
+            event.preventDefault()
             let nameField=form.querySelector('.name_field')
             let subjectField=form.querySelector('#Specialty')
             let countryField=form.querySelector('#state')
@@ -303,6 +326,7 @@ function createPage(number,statsPage){
             }
             if(!isCorrect)
             return;
+          
            let newUser={
             gender: maleField.checked?'male':'female',
             full_name: nameField.value,
@@ -314,31 +338,52 @@ function createPage(number,statsPage){
             phone:phoneField.value,
             picture_large: '../images/nophoto.jpg',
             picture_thumnail: '../images/nophoto.jpg',
-            id: ++lastId,
+            _id:++id,
             favorite: "Sport",
             course: subjectField.value,
             note: noteField.value
            }
+          
            users.push(newUser)
            generateUser(newUser,teachersPanel)
-           console.log(newUser.id)
-           const thisUser=document.querySelector(`.person[data-id="${newUser.id}"]`)
+           logoOnClick()
+           updateTable(users)
+         postData('http://localhost:3000/teachers',newUser,event).then((data) => {
+            console.log(data); 
+          });
+           const thisUser=document.querySelector(`.person[data-id="${newUser._id}"]`)
 thisUser.addEventListener('click', showPopUp)
            document.getElementById('form_popup').remove()
+          
         })
     }
-let statsPage=[]
-let number=1
-createPage(number,statsPage)
-showTablePage(statsPage)
-let pagesNumber=document.querySelectorAll('.pages a')
-for(let pageNumber of pagesNumber){
-    pageNumber.addEventListener('click',function(){
-        number=Number.parseInt(pageNumber.innerText)
-       createPage(number,statsPage)
+    function createPageNumber(usersAmount){
+        let pageAmount=Math.ceil(usersAmount/10.0)
+        
+        console.log(pageAmount)
+        let pages=document.querySelector('.pages')
+        pages.innerHTML=''
+        let res=''
+        for(let i=1;i<=pageAmount;i++){
+            res+=` <a href="#statistics">${i}</a>`
+        }
+        pages.insertAdjacentHTML('afterbegin',res)
+    }
+    function updateTable(users){
+        createPage(1,statsPage,users)
         showTablePage(statsPage)
-    })
-}
+        createPageNumber(users.length)
+        let pagesNumber=document.querySelectorAll('.pages a')
+        
+        for(let pageNumber of pagesNumber){
+            pageNumber.addEventListener('click',function(){
+               let number=Number.parseInt(pageNumber.innerText)
+               createPage(number,statsPage,users)
+                showTablePage(statsPage)
+            })
+        }
+    }
+    updateTable(users)
 let nameTable=document.querySelector('.tableName')
 nameTable.addEventListener('click',function(){
     nameSort(statsPage)
@@ -381,7 +426,6 @@ searchButton.addEventListener('click',function(){
     }
     if(parameters.length==3){
         tempRes=res.slice(0,res.length)
-        
         res=res.slice(0,0)
         console.log(res)
        findNote(parameters[2],res,tempRes)
@@ -389,14 +433,26 @@ searchButton.addEventListener('click',function(){
     }
     let filtersBlock=document.querySelector('.filters')
     filtersBlock.style.visibility='hidden'
+    let getTeachers=document.getElementById('getNewTeachers')
+    getTeachers.style.visibility='hidden'
     let topTeachers=document.querySelector('#teachers_info h2')
     topTeachers.innerText='Search Results'
     teachersPanel.innerHTML=''
     showUsers(res,teachersPanel)
+    updateTable(res)
 })
 let addTeacherButtons=document.querySelectorAll('.addTeacherButton')
 addTeacherButtons.forEach(e=>{
 e.addEventListener('click',function(){
     createForm()
+    
 })
+})
+let getTeachers=document.getElementById('getNewTeachers')
+getTeachers.addEventListener('click',async function(){
+    let data= await getRequest(10)
+    
+    data=correctObject(data)
+    showUsers(data,teachersPanel)
+    updateTable(users)
 })

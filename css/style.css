@@ -378,7 +378,9 @@ margin: 0 0 0 0;
     font-weight: 500 ;
   }
   /* teacher popup here*/
- 
+ #getNewTeachers{
+margin-left: 44%;
+ }
   .add_teacher{
     position: absolute;
     width: 100%;

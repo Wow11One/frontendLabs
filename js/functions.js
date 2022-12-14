@@ -1,7 +1,7 @@
 
 
 /** ******** Your code here! *********** */
-let id = 0
+ let id = 0
 const randomElement = (arr) => {
     let random = Math.floor(Math.random() * arr.length)
     return arr[random]
@@ -10,7 +10,7 @@ const subjects = ["Mathematics", "Physics", "English", "Computer Science", "Danc
     "Law", "Art", "Medicine", "Statistics"]
 const color = ["Black", "White", "Yellow", "Green", "Red", "Blue"]
 
-export function changeObj(randomUser) {
+export function changeObj(randomUser,id) {
     let tempObj = {
         gender: randomUser.gender.toLowerCase(),
         full_name: randomUser.name.first + " " + randomUser.name.last,
@@ -27,7 +27,7 @@ export function changeObj(randomUser) {
         phone: randomUser.phone,
         picture_large: randomUser.picture.large,
         picture_thumnail: randomUser.picture.thumbnail,
-        id: id++,
+        _id: id,
         favorite: "Sport",
         course: randomElement(subjects),
         bg_color: randomElement(color),
@@ -36,6 +36,25 @@ export function changeObj(randomUser) {
 
     return tempObj
 }
+export async function getRequest(amount){
+    let res=[]
+  let response= await fetch(`https://randomuser.me/api?results=${amount}`)
+ let json= await response.json()
+
+ return  json.results
+}
+export async  function postData(url = '', data = {},event) {
+    event.preventDefault();
+    const response = fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+
+    });
+  
+  }
 function concatUnique(changedArray) {
     let result = []
     changedArray.forEach(function (element) {
